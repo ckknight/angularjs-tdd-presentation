@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>TDD with Angular.JS</title>
+    <meta name="description" content="Presentation on how to use TDD with Angular.js">
+    <meta name="author" content="Cameron Kenneth Knight">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+    <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/default.css" id="theme">
+
+    <link rel="stylesheet" href="css/prism.css">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+    <script>
+      document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+    </script>
+    
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h1>TDD with Angular.JS</h1>
+          <p>by <a href="https://github.com/ckknight">ckknight</a></p>
+          <p><a href="http://http://ckknight.github.io/angularjs-tdd-presentation/">http://ckknight.github.io/angularjs-tdd-presentation/</a></p>
+        </section>
+        <section>
+          <h3>What is Test-Driven Development (TDD)?</h3>
+          <p class="fragment">TDD is a software development process that encourages writing a failing automated test case, then produce the minimum amount of code required to pass that test, optionally followed by refactoring code.</p>
+          <p class="fragment"><img src="images/red-green-refactor.png"></p>
+        </section>
+        <section>
+          <h3>Why is Test-Driven Development Useful?</h3>
+          <ul>
+            <li class="fragment">Allows you to make incremental steps easily and encourages against large, sweeping changes.</li>
+            <li class="fragment">Allows us to break the negative feedback loop of increased defects and maintain a linear (as opposed to exponential) cost of change. (see: Technical Debt)</li>
+            <li class="fragment">&ldquo;The act of writing a unit test is more an act of design than of verification.  It is also more an act of documentation than of verification.  The act of writing a unit test closes a remarkable number of feedback loops, the least of which is the one pertaining to verification of function&rdquo;. ~Robert C. Martin</li>
+          <ul>
+        </section>
+        <section>
+          <h3>How does Angular.JS make unit testing easy?</h3>
+          <ul>
+            <li class="fragment">Dependency Injection</li>
+            <li class="fragment">Services that would otherwise be hard-to-test globals, e.g. <code>$timeout</code>, <code>$window</code>, <code>$location</code></li>
+            <li class="fragment">Pre-mocked backends, e.g. <code>$httpBackend</code>, <code>$timeout</code></li>
+            <li class="fragment">Karma is a pretty nice tool. I can run 5 browsers simultaneously without much issue</li>
+          </ul>
+        </section>
+        <section>
+          <h3>What's hard about unit testing with Angular.JS?</h3>
+          <ul>
+            <li class="fragment">If best practices aren't followed, code may become increasingly hard to test. e.g. <code>jQuery</code> usage outside of directives (or improperly used within directives).</li>
+            <li class="fragment">Isolated vs. non-isolated scopes can be confusing.</li>
+            <li class="fragment">Might have to expose more than necessary to test state or otherwise internal methods. <em>Think: is it better to encapsulate this away or is it better to make it easy-to-test?</em></li>
+          </ul>
+        </section>
+        <section>
+          <h2>Live Example</h2>
+        </section>
+        <section>
+          <h2>Q &amp; A</h2>
+        </section>
+      </div>
+    </div>
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.min.js"></script>
+
+    <script>
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        theme: "default", // available themes are in /css/theme
+        transition: Reveal.getQueryHash().transition || 'default',
+        
+        dependencies: [
+            // Cross-browser shim that fully implements classList - https://github.com/eligrey/classList.js/
+            { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+
+            // Zoom in and out with Alt+click
+            { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+
+            // Notes
+            { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+        ]
+      });
+
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+  </body>
+</html>

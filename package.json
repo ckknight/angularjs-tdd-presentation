@@ -1,0 +1,22 @@
+{
+  "name": "angularjs-tdd-presentation",
+  "description": "Presentation on how to use TDD with Angular.js",
+  "version": "0.1.0",
+  "author": {
+    "name": "Cameron Kenneth Knight",
+    "email": "ckknight@gmail.com"
+  },
+  "private": true,
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ckknight/angularjs-tdd-presentation"
+  },
+  "readmeFilename": "README.md",
+  "dependencies": {
+    "express": "~3.3.5",
+    "socket.io": "~0.9.16",
+    "underscore": "~1.5.1",
+    "mustache": "~0.7.2"
+  }
+}
